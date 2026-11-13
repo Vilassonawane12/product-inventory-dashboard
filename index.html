@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Product Inventory & Analytics Dashboard</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <main class="wrap">
+      <header>
+        <p class="eyebrow">JavaScript mini project</p>
+        <h1>Product Inventory & Analytics Dashboard</h1>
+        <p>
+          Add a product, check its category, and review the stock value. The
+          same program also prints the requested report in the browser console.
+        </p>
+      </header>
+      <section class="summary">
+        <div><span>Products</span><strong id="count">0</strong></div>
+        <div>
+          <span>Total inventory value</span><strong id="total">$0</strong>
+        </div>
+        <div>
+          <span>Items under $200</span><strong id="affordable">0</strong>
+        </div>
+      </section>
+      <div class="panels">
+        <section class="panel">
+          <h2>Add a product</h2>
+          <label for="productName">Product name</label
+          ><input
+            id="productName"
+            placeholder="e.g. Monitor"
+            maxlength="60"
+          /><label for="productPrice">Price in USD</label
+          ><input
+            id="productPrice"
+            type="number"
+            min="0"
+            step="0.01"
+            placeholder="150"
+          /><button id="addBtn">Add product</button
+          ><button class="secondary" id="promptBtn">Add using prompts</button>
+          <p id="message" role="status"></p>
+        </section>
+        <section class="panel">
+          <h2>Check a product</h2>
+          <label for="searchName">Search by name</label
+          ><input id="searchName" placeholder="e.g. Mouse" /><button
+            id="searchBtn"
+            class="secondary"
+          >
+            Find product
+          </button>
+          <p id="searchResult" role="status">Try searching for a product.</p>
+          <h2>Apply tax / discount</h2>
+          <div class="inline">
+            <div>
+              <label for="tax">Tax %</label
+              ><input id="tax" type="number" value="5" min="0" step="0.5" />
+            </div>
+            <div>
+              <label for="discount">Discount %</label
+              ><input
+                id="discount"
+                type="number"
+                value="0"
+                min="0"
+                max="100"
+                step="0.5"
+              />
+            </div>
+          </div>
+          <button id="calculateBtn" class="secondary">
+            Calculate adjusted total
+          </button>
+          <p id="adjustedTotal"></p>
+        </section>
+      </div>
+      <section class="panel">
+        <h2>Inventory list</h2>
+        <p class="hint">
+          Budget: under $50 · Standard: $50–$499.99 · Premium: $500 and above
+        </p>
+        <table>
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Price</th>
+              <th>Category</th>
+            </tr>
+          </thead>
+          <tbody id="inventoryRows"></tbody>
+        </table>
+        <h3>Affordable items (under $200)</h3>
+        <p id="affordableItems"></p>
+        <button id="reportBtn" class="secondary">Print console report</button>
+      </section>
+      <footer>
+        Made using plain HTML, CSS and JavaScript. No login, API or external
+        library needed.
+      </footer>
+    </main>
+    <script src="script.js"></script>
+  </body>
+</html>
